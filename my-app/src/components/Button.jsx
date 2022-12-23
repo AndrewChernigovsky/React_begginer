@@ -1,43 +1,45 @@
+import { useState } from "react";
 import styled from "styled-components/macro";
+import "./divWrapper.css";
+import Button1 from "./Button1"
 
-let blue = blue;
-
-const StyledButton = styled.button`
+const StyledDiv = styled.div`
 	color: black;
 	border: 2px solid black;
-	padding: 2rem;
-	border-radius: 50%;
-	font-size: 40px;
-	transition-duration: 1.7s;
-
-	&:hover {
-		opacity: 0.8;
-		cursor: pointer;
-		color: ${blue};
-		transition-duration: 1.7s;
-	}
-
+	padding: 1rem;
+	border-radius: 15px;
+	heght: 40px;
+	min-width: 200px;
+	font-size: 80px;
+	max-width: 300px;
+	margin: 0 auto;
+	margin-bottom: 20px;
 `
 
-let array = [
-	0,1,2,3,4,5,6,7,8,9,10
-]
-
-function Button1() {
-	return <StyledButton onClick={() => counter()}>push me</StyledButton>
-};
-function Div1(props) {
-	return <div>{props.count}</div>
-};
-
-function Div2(count) {
-	return <div>{count = 1}</div>
-}
+const StyledCount = styled.div`
+	color: black;
+	border: 2px solid black;
+	padding: 1rem;
+	border-radius: 15px;
+	heght: 40px;
+	min-width: 200px;
+	font-size: 80px;
+	max-width: 300px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+`
 
 export default function Button() {
-	
+
+	const [count, setCount] = useState(0);
+
 	return <>
-		<Button1/>
-		<Div2/>
+		<StyledCount>{count}</StyledCount>
+		<div className="wrapper">
+			<Button1 fun={() => setCount(count + 1)} text = 'plus'/>
+			<Button1 fun={() => setCount(count - 1)} text = 'minus'/>
+			<Button1 fun={() => setCount(0)} text = 'reset'/>
+		</div>
 	</>
 }
+
