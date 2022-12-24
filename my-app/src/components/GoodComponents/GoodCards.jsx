@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GoodCard, { result } from "./GoodCard"
+import GoodCard from "./GoodCard"
 import styled from "styled-components/macro";
 import DescriptionGood from "./DescriptionGood"
 
@@ -8,6 +8,7 @@ const StyledWrapperCards = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-beetwen;
 	align-items: center;
+	gap: 20px;
 `
 const StyledImage = styled.img`
 	min-width: 200px;
@@ -17,19 +18,21 @@ const StyledText = styled.p`
 	color: black;
 	font-size: 16px;
 `
-const GoodCards = () => {
-	const [values, setValue] = useState(DescriptionGood.burger);
 
-	const result = values.map((value, index) => {
-		return (<div key={value.name + index}>
-			<StyledText><strong>Название:</strong> {value.name}</StyledText>
-			<StyledText><strong>Стоимость: </strong>{value.price} <strong>P</strong></StyledText>
-			<StyledImage src={value.img}></StyledImage>
-			</div>)
-	})
+function GoodCards() {
+	const [items, setItem] = useState(DescriptionGood.burger);
+	
+	return	<StyledWrapperCards>{
+		items.map((item, index) => {
 
-	return <StyledWrapperCards>
-		{result}
+			return <GoodCard
+				key={item.name + index}
+				name={item.name}
+				price={item.price}
+				img={item.img}
+			/>
+		})
+	}
 	</StyledWrapperCards>
 }
 
