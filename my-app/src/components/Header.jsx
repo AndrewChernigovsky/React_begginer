@@ -1,10 +1,9 @@
-import Paragraph from "./Paragraph"
-import Button from "./Button"
+import GoodCards from "./GoodComponents/GoodCards"
 
 function Header(props) {
 	return <div>
 		<div className='title'>
-			<Button />
+			<GoodCards/>
 		</div>
 	</div>
 }
