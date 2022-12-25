@@ -1,9 +1,11 @@
 import GoodCards from "./GoodComponents/GoodCards"
+import Sidebar from "./GoodComponents/Sidebar"
 
 function Header(props) {
 	return <div>
 		<div className='title'>
-			<GoodCards/>
+			<Sidebar />
+			<GoodCards />
 		</div>
 	</div>
 }

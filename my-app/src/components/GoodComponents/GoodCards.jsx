@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GoodCard from "./GoodCard"
+
 import styled from "styled-components/macro";
 import DescriptionGood from "./DescriptionGood"
 
@@ -10,18 +11,10 @@ const StyledWrapperCards = styled.div`
 	align-items: center;
 	gap: 20px;
 `
-const StyledImage = styled.img`
-	min-width: 200px;
-	margin: 20px;
-`
-const StyledText = styled.p`
-	color: black;
-	font-size: 16px;
-`
 
 function GoodCards() {
 	const [items, setItem] = useState(DescriptionGood.burger);
-	
+
 	return	<StyledWrapperCards>{
 		items.map((item, index) => {
 
@@ -30,10 +23,12 @@ function GoodCards() {
 				name={item.name}
 				price={item.price}
 				img={item.img}
-			/>
+			/> 
 		})
 	}
 	</StyledWrapperCards>
+
+
 }
 
 export default GoodCards;

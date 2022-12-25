@@ -22,17 +22,27 @@ const StyledText = styled.p`
 `
 
 
+
 export default function GoodCard({ name, price, img }) {
-	function foo() {
-		console.log('added')
-		console.log(name);
-		console.log(price);
+
+	function removeCard() {
+		console.log(120)
+	}
+
+	function cardAddtoCart() {
+		return (
+		<StyledDescription>
+			<StyledText><strong>Название:</strong> {name}</StyledText>
+			<StyledText><strong>Стоимость: </strong>{price} <strong>P</strong></StyledText>
+			<StyledImage src={img}></StyledImage>
+			<ButtonAddtoCart fun={removeCard} text='Remove' />
+		</StyledDescription>)
 	}
 
 	return (<StyledDescription>
 		<StyledText><strong>Название:</strong> {name}</StyledText>
 		<StyledText><strong>Стоимость: </strong>{price} <strong>P</strong></StyledText>
 		<StyledImage src={img}></StyledImage>
-			<ButtonAddtoCart fun = {foo} text = 'Add' />
+		<ButtonAddtoCart fun={cardAddtoCart} text='Add' />
 	</StyledDescription>)
 }
