@@ -1,5 +1,8 @@
+import React from "react";
 import styled from "styled-components/macro";
 import ButtonAddtoCart from "./ButtonAddtoCart";
+import { useOrders } from "../Hooks/useOrders";
+import { useCount } from "../Hooks/useCount";
 
 const StyledDescription = styled.div`
 	color: black;
@@ -21,23 +24,19 @@ const StyledText = styled.p`
 	font-size: 16px;
 `
 
+export default function GoodCard({ name, price, img, setOrders }) {
 
+	const counter = useCount();
 
-export default function GoodCard({ name, price, img }) {
+	const order = {
+		...openItem,
+		count: counter.count,
+	};
 
-	function removeCard() {
-		console.log(120)
-	}
-
-	function cardAddtoCart() {
-		return (
-		<StyledDescription>
-			<StyledText><strong>Название:</strong> {name}</StyledText>
-			<StyledText><strong>Стоимость: </strong>{price} <strong>P</strong></StyledText>
-			<StyledImage src={img}></StyledImage>
-			<ButtonAddtoCart fun={removeCard} text='Remove' />
-		</StyledDescription>)
-	}
+	const cardAddtoCart = () => {
+		setOrders([...orders, order]);
+		setOpenItem(null);
+	};
 
 	return (<StyledDescription>
 		<StyledText><strong>Название:</strong> {name}</StyledText>

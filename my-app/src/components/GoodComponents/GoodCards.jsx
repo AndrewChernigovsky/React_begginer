@@ -1,6 +1,5 @@
 import { useState } from "react";
-import GoodCard from "./GoodCard"
-
+import GoodCard from "./GoodCard";
 import styled from "styled-components/macro";
 import DescriptionGood from "./DescriptionGood"
 

@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import GoodCard from "./GoodCard"
+import { useOrders } from "./Hooks/useOrders";
 
 const StyledSidebar = styled.div`
 	height: 300px;
@@ -16,12 +17,11 @@ const StyledSidebar = styled.div`
 `
 
 function Sidebar(currentCards) {
-
+	const orders = useOrders();
+	
 	return <StyledSidebar>
 		<p>Sidebar</p>
-		<div>
-			<GoodCard/>
-		</div>
+		<GoodCard  {...orders} />
 	</StyledSidebar>
 }
 
