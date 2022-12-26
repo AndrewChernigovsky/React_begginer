@@ -7,14 +7,12 @@ const StyledDescription = styled.div`
 	border: 2px solid black;
 	padding: 1rem;
 	border-radius: 15px;
+	heght: 20px;
 	min-width: 200px;
 	font-size: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	display: grid;
-`
-const StyledText = styled.p`
-	color: black;
-	font-size: 16px;
+	grid-template-columns: 1fr;
 `
 const StyledImageWrapper = styled.div`
 	max-width: 300px;
@@ -26,16 +24,20 @@ const StyledImage = styled.img`
 	height: 100%;
 	object-fit: cover;
 `
+const StyledText = styled.p`
+	color: black;
+	font-size: 16px;
+`
 
-export default function GoodCard({ name, price, img, setOrder, order }) {
+export default function GoodCardOrder({name, price, img, setOrder}) {
 
 	return (<StyledDescription>
+
 		<StyledText><strong>Название:</strong> {name}</StyledText>
 		<StyledText><strong>Стоимость: </strong>{price} <strong>P</strong></StyledText>
 		<StyledImageWrapper>
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
-			<ButtonAddtoCart name={name} price={price} img={img} setOrder={setOrder} order={order} text='Add' />
-	</StyledDescription>
-	)
+		<ButtonAddtoCart fun={setOrder}  text='remove' />
+	</StyledDescription>)
 }

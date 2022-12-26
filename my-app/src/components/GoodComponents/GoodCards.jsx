@@ -4,14 +4,13 @@ import styled from "styled-components/macro";
 import DescriptionGood from "./DescriptionGood"
 
 const StyledWrapperCards = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-beetwen;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px;
+	align-content: baseline;
 `
 
-function GoodCards() {
+function GoodCards({setOrder, order}) {
 	const [items, setItem] = useState(DescriptionGood.burger);
 
 	return	<StyledWrapperCards>{
@@ -22,12 +21,12 @@ function GoodCards() {
 				name={item.name}
 				price={item.price}
 				img={item.img}
+				order={order}
+				setOrder={setOrder}
 			/> 
 		})
 	}
 	</StyledWrapperCards>
-
-
 }
 
 export default GoodCards;

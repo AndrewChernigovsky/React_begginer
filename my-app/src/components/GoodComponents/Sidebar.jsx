@@ -1,27 +1,43 @@
+
 import styled from "styled-components/macro";
-import GoodCard from "./GoodCard"
-import { useOrders } from "./Hooks/useOrders";
+import GoodCardOrder from "./GoodCardOrder"
 
 const StyledSidebar = styled.div`
-	height: 300px;
-	min-width: 200px;
+	min-height: 100%;
+	max-width: 400px;
+	min-width: 300px;
 	border: 1px solid black;
 	display: grid;
-	margin: 0 auto;
-	margin-bottom: 2rem;
-	padding: 2rem;
+	align-content: start;
+	margin-bottom: 0rem;
+	padding: 1rem;
+	margin-right: 20px;
+	transition: 1s ease-in-out;
+	border-radius: 15px;
+
 
 	p {
-		font-size: 45px;
+		font-size: 25px;
 	}
 `
+// const StyledOrderContent = styled.div`
+// 	height: 300px;
+// 	min-width: 200px;
+// 	border: 1px solid black;
+// 	display: grid;
+// 	margin: 0 auto;
+// 	margin-bottom: 2rem;
+// 	padding: 2rem;
+// `
 
-function Sidebar(currentCards) {
-	const orders = useOrders();
-	
+function Sidebar({ setOrder, order }) {
+
 	return <StyledSidebar>
-		<p>Sidebar</p>
-		<GoodCard  {...orders} />
+		<h2>Sidebar</h2>
+		{order.map((item) => {
+			return <GoodCardOrder name={item.name} price={item.price} img={item.img} setOrder={setOrder} />
+		})}
+
 	</StyledSidebar>
 }
 

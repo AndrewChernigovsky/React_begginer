@@ -25,6 +25,6 @@ const StyledButton = styled.button`
 	}
 `
 
-export default function ButtonAddtoCart({fun, text}) {
-	return <StyledButton onClick={fun}>{text}</StyledButton>
+export default function ButtonAddtoCart({setOrder, text, order, name, price, img}) {
+	return <StyledButton onClick={() => { setOrder([...order, {name, price,img}]) }}>{text}</StyledButton>
 };
