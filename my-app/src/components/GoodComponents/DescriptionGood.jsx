@@ -26,7 +26,7 @@ const DescriptionGood = {
 			img: "/images/menu/freckles-burger.png",
 			id: 3,
 			price: 350,
-			fillings: ["Ананас", "Майонец"],
+			fillings: ["Ананас", "Майонез"],
 		},
 		{
 			name: "Timon Burger",

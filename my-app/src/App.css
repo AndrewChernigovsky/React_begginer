@@ -43,8 +43,7 @@
 	min-height: 50%;
 	display: grid;
 	grid-template-columns: 1fr;
-	background-color: #282c34;
-	color: white;
+	background-color: #fb8e00;
 	position: absolute;
 	z-index: 1;
 	left: 50%;
