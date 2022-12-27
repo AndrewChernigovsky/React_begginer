@@ -4,7 +4,7 @@ import GoodCardOrder from "./GoodCardOrder"
 
 const StyledSidebar = styled.div`
 	min-height: 100%;
-	max-width: 400px;
+	max-width: 350px;
 	min-width: 350px;
 	border: 1px solid black;
 	display: grid;

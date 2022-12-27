@@ -12,12 +12,11 @@ const StyledDescription = styled.div`
 	max-width: max-content;
 	font-size: 20px;
 	margin-bottom: 20px;
-	display: grid;
-	grid-template-columns: 1fr;
+	display: block;
 `
 const StyledImageWrapper = styled.div`
 	max-width: 300px;
-	min-height: 160px;
+	max-height: 50px;
 	margin-bottom: 10px;
 `
 const StyledImage = styled.img`
@@ -39,6 +38,6 @@ export default function GoodCardOrder({ name, price, img, order, setOrder, index
 		<StyledImageWrapper>
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
-		<ButtonRemoveFromCart order={order} setOrder={setOrder} text='remove' name={name} price={price} img={img} index={index} />
+		<ButtonRemoveFromCart order={order} setOrder={setOrder} text='-' name={name} price={price} img={img} index={index} />
 	</StyledDescription>)
 }

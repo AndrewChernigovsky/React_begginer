@@ -10,9 +10,10 @@ let arrColors = [
 const StyledButton = styled.button`
 	color: black;
 	border: 2px solid black;
-	padding: 0.5rem;
-	border-radius: 15px;
-	heght: 60px;
+	padding: 0.2rem;
+	border-radius: 5px;
+	heght: 40px;
+	width: 40px;
 	max-width: 100px;
 	font-size: 20px;
 	margin-bottom: 20px;
