@@ -9,13 +9,16 @@ const StyledWrapperCards = styled.div`
 	gap: 20px;
 	align-content: baseline;
 `
-
-function GoodCards({setOrder, order}) {
+// В параметрах мы принимаем данные из родителя(<Header/>)
+function GoodCards({ setOrder, order }) {
+	// Принимаем данные в новый стейт из основного массива данных о всех заказах DescriptionGood
 	const [items, setItem] = useState(DescriptionGood.burger);
 
-	return	<StyledWrapperCards>{
+	// Записываем в результат функции компонент, который она нам возвращает
+	return <StyledWrapperCards>{
+		// проходимся по массиву данных стейта и передаем в карточку все свойства, которые нам нужны
 		items.map((item, index) => {
-
+		// также передаем пустой массив с невыбранными заказами и функцию для установки заказа
 			return <GoodCard
 				key={item.name + index}
 				name={item.name}

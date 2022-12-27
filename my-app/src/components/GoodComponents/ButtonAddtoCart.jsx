@@ -24,7 +24,7 @@ const StyledButton = styled.button`
 		transition-duration: 0.3s;
 	}
 `
-
+// принимаем все параметры из карточки и устанавливаем значение для функции и текста
 export default function ButtonAddtoCart({setOrder, text, order, name, price, img}) {
 	return <StyledButton onClick={() => { setOrder([...order, {name, price,img}]) }}>{text}</StyledButton>
 };

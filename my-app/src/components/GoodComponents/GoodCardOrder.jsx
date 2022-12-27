@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import ButtonAddtoCart from "./ButtonAddtoCart";
+import ButtonRemoveFromCart from "./ButtonRemoveFromCart";
 
 const StyledDescription = styled.div`
 	color: black;
@@ -9,6 +9,7 @@ const StyledDescription = styled.div`
 	border-radius: 15px;
 	heght: 20px;
 	min-width: 200px;
+	max-width: max-content;
 	font-size: 20px;
 	margin-bottom: 20px;
 	display: grid;
@@ -29,7 +30,7 @@ const StyledText = styled.p`
 	font-size: 16px;
 `
 
-export default function GoodCardOrder({name, price, img, setOrder}) {
+export default function GoodCardOrder({ name, price, img, order, setOrder, index }) {
 
 	return (<StyledDescription>
 
@@ -38,6 +39,6 @@ export default function GoodCardOrder({name, price, img, setOrder}) {
 		<StyledImageWrapper>
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
-		<ButtonAddtoCart fun={setOrder}  text='remove' />
+		<ButtonRemoveFromCart order={order} setOrder={setOrder} text='remove' name={name} price={price} img={img} index={index} />
 	</StyledDescription>)
 }
