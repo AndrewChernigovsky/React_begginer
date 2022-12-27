@@ -3,6 +3,7 @@ import Sidebar from "./GoodComponents/Sidebar"
 import { useState } from "react";
 import React from "react";
 import styled from "styled-components/macro";
+import Modal from "./GoodComponents/Modal"
 
 const StyledWrapper = styled.div`
 	display: flex;
@@ -15,7 +16,8 @@ function Header() {
 		<StyledWrapper>
 			{/* передаем доступ до функций и переменной стейта в компоненты дальше */}
 			<Sidebar setOrder={setOrder} order={order} />
-			<GoodCards setOrder={setOrder} order={order}  />
+			<GoodCards setOrder={setOrder} order={order} />
+			<Modal/>
 		</StyledWrapper>
 	</div>
 }

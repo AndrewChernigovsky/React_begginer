@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 
+
 let arrColors = [
 	{
 		blue: '#152EFA',
