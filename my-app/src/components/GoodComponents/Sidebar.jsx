@@ -27,26 +27,21 @@ const StyledCounterAll = styled.div`
 	}
 `
 // В параметрах мы принимаем данные из родителя(<Header/>)
-function Sidebar({ setOrder, order}) {
-	let count = 0;
-	let price = 0;
-	let nameOrder = '';
+function Sidebar({order}) {
 
 	return <StyledSidebar>
 		<h2>Sidebar</h2>
 
 		{order.map((item, index) => {
-			count = 1 + index;
-			price += item.price;
-			nameOrder += item.name+', ';
-				
-			return <GoodCardOrder index={index} key={item.name + index} name={item.name} price={item.price} img={item.img} setOrder={setOrder} order={order} />
+			return <GoodCardOrder
+				key={item.name + index}
+				name={item.name}
+				price={item.price}
+				img={item.img}
+				count={item.count} />
 		})}
 
 		<StyledCounterAll>
-			<p><strong>Название: </strong>{nameOrder} </p>
-			<p><strong>Количество: </strong>{count} </p>
-			<p><strong>Стоимость: </strong>{price} Рублей </p>
 		</StyledCounterAll>
 		 
 
