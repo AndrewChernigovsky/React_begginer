@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-
+import { useModal } from "./../Hooks/useModal";
 
 let arrColors = [
 	{
@@ -26,6 +26,16 @@ const StyledButton = styled.button`
 	}
 `
 // принимаем все параметры из карточки и устанавливаем значение для функции и текста
-export default function ButtonAddtoCart({setOrder, text, order, name, price, img}) {
-	return <StyledButton onClick={() => { setOrder([...order, {name, price,img}]) }}>{text}</StyledButton>
+export default function ButtonAddtoCart({ setOrder, text, order, name, price, img }) {
+
+	const modal = useModal()
+
+	const openModal = (e) => {
+		if (!modal.setIsOpen) {
+			e.target.style.display = 'block'
+			console.log('open')
+		}
+	}
+
+	return <StyledButton onClick={() => { setOrder([...order, { name, price, img }]); openModal }}>{text}</StyledButton>
 };

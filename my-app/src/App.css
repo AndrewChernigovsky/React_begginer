@@ -48,14 +48,15 @@
 	z-index: 1;
 	left: 50%;
 	top: 50%;
+	opacity: 1;
 	transform: translate(-50%, -50%);
 }
 
-#overlay {
+/* #overlay {
 	background-color: #282c34;
 	opacity: 0.8;
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	z-index: 0;
-}
+	z-index: ;
+} */
