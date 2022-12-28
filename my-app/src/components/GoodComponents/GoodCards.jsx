@@ -10,7 +10,7 @@ const StyledWrapperCards = styled.div`
 	align-content: baseline;
 `
 // В параметрах мы принимаем данные из родителя(<Header/>)
-function GoodCards({ setOrder, order }) {
+function GoodCards({ setOrder, order, setModal}) {
 	// Принимаем данные в новый стейт из основного массива данных о всех заказах DescriptionGood
 	const [items, setItem] = useState(DescriptionGood.burger);
 
@@ -26,6 +26,7 @@ function GoodCards({ setOrder, order }) {
 				img={item.img}
 				order={order}
 				setOrder={setOrder}
+				setModal={setModal}
 			/> 
 		})
 	}

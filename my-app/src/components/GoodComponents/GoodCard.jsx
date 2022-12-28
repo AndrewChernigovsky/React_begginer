@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/macro";
 import ButtonAddtoCart from "./ButtonAddtoCart";
 
-
 const StyledDescription = styled.div`
 	color: black;
 	border: 2px solid black;
@@ -28,7 +27,7 @@ const StyledImage = styled.img`
 	object-fit: cover;
 `
 // принимаем данные из массива DescriptionGood, и функции для отображения заказа
-export default function GoodCard({ name, price, img, setOrder, order }) {
+export default function GoodCard({ name, price, img, setOrder, order, setModal }) {
 
 	return (<StyledDescription>
 		<StyledText><strong>Название:</strong> {name}</StyledText>
@@ -37,7 +36,7 @@ export default function GoodCard({ name, price, img, setOrder, order }) {
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
 			{/* передаем в кнопку эти параметры */}
-			<ButtonAddtoCart name={name} price={price} img={img} setOrder={setOrder} order={order} text='Add' />
+		<ButtonAddtoCart name={name} price={price} img={img} setOrder={setOrder} order={order} setModal={setModal} text='Add' />
 	</StyledDescription>
 	)
 }

@@ -48,7 +48,7 @@ function Sidebar({ setOrder, order}) {
 			<p><strong>Количество: </strong>{count} </p>
 			<p><strong>Стоимость: </strong>{price} Рублей </p>
 		</StyledCounterAll>
-		
+		 
 
 	</StyledSidebar>
 }

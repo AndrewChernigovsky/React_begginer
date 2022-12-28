@@ -29,7 +29,7 @@ const StyledText = styled.p`
 	font-size: 16px;
 `
 
-export default function GoodCardOrder({ name, price, img, order, setOrder, index }) {
+export default function GoodCardOrder({ name, price, img, order, setOrder, index, modal, setModal }) {
 
 	return (<StyledDescription>
 
@@ -38,6 +38,6 @@ export default function GoodCardOrder({ name, price, img, order, setOrder, index
 		<StyledImageWrapper>
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
-		<ButtonRemoveFromCart order={order} setOrder={setOrder} text='-' name={name} price={price} img={img} index={index} />
+		{/* <ButtonRemoveFromCart order={order} setOrder={setOrder} text='-' name={name} price={price} img={img} index={index} setModal={setModal} modal={modal} /> */}
 	</StyledDescription>)
 }
