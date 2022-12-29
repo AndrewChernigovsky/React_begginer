@@ -55,7 +55,7 @@ export default function Modal({ setModal, modal, setOrder, order }) {
 		<div className="overlay" id='overlay' onClick={(e) => {closeModal(e)}}>
 			<div className="modal">
 				<h2>Ваш заказ</h2>
-				<GoodCardOrder name={modal.name} price={modal.price} img={modal.img} count={count} />
+				<GoodCardOrder name={modal.name} price={modal.price} img={modal.img} count={count}/>
 				<StyledWrapperButtons>
 					<StyledButton disabled={count === 1} onClick={() => { setCount(count - 1) }} > - </StyledButton>
 					<StyledButton onClick={() => { setCount(count + 1) }} > + </StyledButton>

@@ -1,0 +1,111 @@
+.goods {
+	color: black;
+	padding: 1rem;
+	border-radius: 15px;
+	min-width: 200px;
+	font-size: 20px;
+	margin-bottom: 10px;
+	display: grid;
+	position: relative;
+
+	&__text-wrapper {
+		position: absolute;
+		top: 10px;
+		left: 30px;
+		z-index: 3;
+	}
+
+	&__text {
+		font-size: 24px;
+		color: white;
+		font-weight: 600;
+		font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		text-shadow: 1px 1px 2px black;
+	}
+}
+
+.goods-image {
+	margin-bottom: 10px;
+	position: relative;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		background: linear-gradient(45deg, rgba(126,2,2,1) 0%, rgba(255,119,0,1) 100%);
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0.8;
+		transition-duration: 1s;
+		animation: animaBurger 3s ease-in-out infinite;
+	}
+
+	&:hover {
+		&::after {
+			opacity: 0;
+			transition-duration: 1s;
+		}
+	}
+}
+
+.cost {
+	font-weight: 400;
+}
+
+.subtitle.base-text{
+	color: white;
+
+}
+
+.buttonAddtoCart {
+	display: flex;
+	min-width: 100%;
+	align-items: center;
+	justify-content: center;
+	color: black;
+	border: 1px solid blue;
+	padding: 0.5rem;
+	border-radius: 5px;
+	height: 60px;
+	max-width: 100px;
+	font-size: 20px;
+	margin-bottom: 20px;
+	color: white;
+	background: rgb(12,3,95);
+	background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
+	transition-duration: 1s;
+	text-shadow: 1px 1px 2px black;
+
+	&:hover {
+		opacity: 0.8;
+		cursor: pointer;
+		color: blue;
+		background: rgb(229, 227, 243);
+		background: linear-gradient(45deg, rgb(20, 200, 207) 0%, rgb(0, 119, 255) 100%);
+		transition-duration: 1s;
+	}
+}
+
+@keyframes animaBurger {
+	0% {
+		background: linear-gradient(45deg, rgba(126,2,2,1) 0%, rgba(255,119,0,1) 100%);
+		opacity: 0;
+	}
+	50% {
+		background: linear-gradient(45deg, rgba(126,2,2,1) 0%, rgba(255,119,0,1) 100%);
+		opacity: 0.2;
+	}
+	100% {
+		background: linear-gradient(45deg, rgba(126,2,2,1) 0%, rgba(255,119,0,1) 100%);
+		opacity: 0;
+	}
+}

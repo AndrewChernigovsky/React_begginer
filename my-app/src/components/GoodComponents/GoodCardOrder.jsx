@@ -31,9 +31,9 @@ export default function GoodCardOrder({ name, price, img, count }) {
 
 	return (<StyledDescription>
 
-		<StyledText><strong>Название:</strong> {name}</StyledText>
-		<StyledText><strong>Стоимость: </strong>{price*count} <strong>P</strong></StyledText>
-		<StyledText><strong>Количество: </strong>{count}</StyledText>
+		<StyledText><span className="subtitle base-text">Название:</span> {name}</StyledText>
+		<StyledText><span className="subtitle base-text">Стоимость: </span>{price*count} <span className="subtitle base-text">P</span></StyledText>
+		<StyledText><span className="subtitle base-text">Количество: </span>{count}</StyledText>
 		<StyledImageWrapper>
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
