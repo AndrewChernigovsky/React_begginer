@@ -27,7 +27,7 @@ const StyledImage = styled.img`
 	object-fit: cover;
 `
 // принимаем данные из массива DescriptionGood, и функции для отображения заказа
-export default function GoodCardOther({ name, price, img, setOrder, order, setModal }) {
+export default function GoodCardOther({ name, price, img, setOrder, order, setModal, fillings }) {
 
 	return (<StyledDescription>
 		<StyledText><strong>Название:</strong> {name}</StyledText>
@@ -36,7 +36,7 @@ export default function GoodCardOther({ name, price, img, setOrder, order, setMo
 			<StyledImage src={img}></StyledImage>
 		</StyledImageWrapper>
 			{/* передаем в кнопку эти параметры */}
-		<ButtonAddtoCart name={name} price={price} img={img} setOrder={setOrder} order={order} setModal={setModal} text='Add' />
+		<ButtonAddtoCart name={name} price={price} img={img} setOrder={setOrder} order={order} setModal={setModal} fillings={fillings} text='Add' />
 	</StyledDescription>
 	)
 }

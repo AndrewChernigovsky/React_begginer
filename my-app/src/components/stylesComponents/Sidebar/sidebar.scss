@@ -1,0 +1,27 @@
+.sidebar {
+	min-height: 100%;
+	max-width: 350px;
+	min-width: 350px;
+	border: 1px solid black;
+	display: grid;
+	align-content: start;
+	margin-bottom: 0rem;
+	padding: 1rem;
+	margin-right: 20px;
+	transition: 1s ease-in-out;
+	border-radius: 15px;
+	background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
+
+	&__wrapper {
+		display: grid;
+	}
+
+	&__title {
+		color: white;
+	}
+
+	p {
+		font-size: 25px;
+		color:  white;
+	}
+}

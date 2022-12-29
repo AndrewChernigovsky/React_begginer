@@ -9,15 +9,54 @@
 .modal {
 	min-width: 500px;
 	max-width: 500px;
-	min-height: 50%;
+	min-height: 400px;
 	display: grid;
 	grid-template-columns: 1fr;
-	background-color: #fb8e00;
+	background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
 	position: absolute;
 	z-index: 1;
 	left: 50%;
 	top: 50%;
 	opacity: 1;
+	color: white;
 	transform: translate(-50%, -50%);
 	padding: 1rem;
+
+	button {
+		height: 20px;
+		color:  white;
+	}
+
+	.goods-image {
+		border: 1px solid white;
+		&:after {
+			animation: none;
+			background: none;
+		}
+	}
+
+	button.buttonAddtoCart {
+		min-width: max-content;
+		width: 40px;
+		height: 40px;
+		background: linear-gradient(45deg, rgba(126,2,2,1) 0%, rgba(255,119,0,1) 100%);
+
+		&:nth-of-type(2) {
+			margin-left: 1rem;
+		}
+
+		&:disabled {
+			opacity: 0.4;
+		}
+	}
+
+	.buttonCountersWrap {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.pushButton {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
 }

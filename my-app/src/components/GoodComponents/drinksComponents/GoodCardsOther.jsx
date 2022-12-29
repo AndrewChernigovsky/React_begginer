@@ -31,6 +31,7 @@ export default function GoodCardsOther({ setOrder, order, setModal }) {
 						order={order}
 						setOrder={setOrder}
 						setModal={setModal}
+						fillings={item.choices}
 					/>
 				})
 			}

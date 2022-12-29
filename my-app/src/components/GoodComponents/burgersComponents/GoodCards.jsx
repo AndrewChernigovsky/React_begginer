@@ -31,6 +31,7 @@ function GoodCards({ setOrder, order, setModal}) {
 						order={order}
 						setOrder={setOrder}
 						setModal={setModal}
+						fillings={item.fillings}
 					/>
 				})
 			}
