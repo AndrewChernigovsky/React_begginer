@@ -1,4 +1,5 @@
-import GoodCards from "./GoodComponents/GoodCards"
+import GoodCards from "./GoodComponents/burgersComponents/GoodCards"
+import GoodCardsOther from "./GoodComponents/drinksComponents/GoodCardsOther"
 import Sidebar from "./GoodComponents/Sidebar"
 import { useState } from "react";
 import React from "react";
@@ -18,7 +19,11 @@ function Header() {
 		<StyledWrapper>
 			{/* передаем доступ до функций и переменной стейта в компоненты дальше */}
 			<Sidebar setOrder={setOrder} order={order} />
-			<GoodCards setModal={setModal} modal={modal} setOrder={setOrder} order={order} />
+			<div className="goodsWrapper">
+				<GoodCards setModal={setModal} modal={modal} setOrder={setOrder} order={order} />
+				<GoodCardsOther setModal={setModal} modal={modal} setOrder={setOrder} order={order} />
+			</div>
+
 			{modal &&
 			<Modal setModal={setModal} modal={modal} order={order} setOrder={setOrder} />
 			}

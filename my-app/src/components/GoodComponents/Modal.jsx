@@ -3,28 +3,6 @@ import React from "react";
 import GoodCardOrder from "./GoodCardOrder"
 import { useState } from "react";
 
-const StyledOverlay = styled.div`
-	background-color: rgba(2, 17, 20, 0.6);
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	z-index: 10;
-`
-const StyledModal = styled.div`
-	min-width: 500px;
-	max-width: 500px;
-	min-height: 50%;
-	display: grid;
-	grid-template-columns: 1fr;
-	background-color: #fb8e00;
-	position: absolute;
-	z-index: 1;
-	left: 50%;
-	top: 50%;
-	opacity: 1;
-	transform: translate(-50%, -50%);
-	padding: 1rem;
-`
 const StyledWrapperButtons = styled.div`
 	display: flex;
 	padding: 1rem;
@@ -74,8 +52,8 @@ export default function Modal({ setModal, modal, setOrder, order }) {
 	}
 	
 	return <>
-		<StyledOverlay id='overlay' onClick={(e) => {closeModal(e)}}>
-			<StyledModal>
+		<div className="overlay" id='overlay' onClick={(e) => {closeModal(e)}}>
+			<div className="modal">
 				<h2>Ваш заказ</h2>
 				<GoodCardOrder name={modal.name} price={modal.price} img={modal.img} count={count} />
 				<StyledWrapperButtons>
@@ -83,7 +61,7 @@ export default function Modal({ setModal, modal, setOrder, order }) {
 					<StyledButton onClick={() => { setCount(count + 1) }} > + </StyledButton>
 					<StyledButton onClick={(e) => { pushOrder(e) }} > add </StyledButton>
 				</StyledWrapperButtons>
-			</StyledModal>
-		</StyledOverlay>
+			</div>
+		</div>
 	</>
 }

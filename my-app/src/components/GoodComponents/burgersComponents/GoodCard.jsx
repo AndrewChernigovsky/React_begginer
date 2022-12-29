@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import ButtonAddtoCart from "./ButtonAddtoCart";
+import ButtonAddtoCart from "./../ButtonAddtoCart";
 
 const StyledDescription = styled.div`
 	color: black;

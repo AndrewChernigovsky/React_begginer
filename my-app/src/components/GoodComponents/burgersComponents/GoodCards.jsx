@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GoodCard from "./GoodCard";
 import styled from "styled-components/macro";
-import DescriptionGood from "./DescriptionGood"
+import DescriptionGood from "../DescriptionGood"
 
 const StyledWrapperCards = styled.div`
 	display: grid;
@@ -15,22 +15,28 @@ function GoodCards({ setOrder, order, setModal}) {
 	const [items, setItem] = useState(DescriptionGood.burger);
 
 	// Записываем в результат функции компонент, который она нам возвращает
-	return <StyledWrapperCards>{
-		// проходимся по массиву данных стейта и передаем в карточку все свойства, которые нам нужны
-		items.map((item, index) => {
-		// также передаем пустой массив с невыбранными заказами и функцию для установки заказа
-			return <GoodCard
-				key={item.name + index}
-				name={item.name}
-				price={item.price}
-				img={item.img}
-				order={order}
-				setOrder={setOrder}
-				setModal={setModal}
-			/> 
-		})
-	}
-	</StyledWrapperCards>
+	return <>
+		<section className="burgers-section">
+			<h2>Burgers</h2>
+			<StyledWrapperCards>{
+
+				// проходимся по массиву данных стейта и передаем в карточку все свойства, которые нам нужны
+				items.map((item, index) => {
+					// также передаем пустой массив с невыбранными заказами и функцию для установки заказа
+					return <GoodCard
+						key={item.name + index}
+						name={item.name}
+						price={item.price}
+						img={item.img}
+						order={order}
+						setOrder={setOrder}
+						setModal={setModal}
+					/>
+				})
+			}
+			</StyledWrapperCards>
+		</section>
+	</>
 }
 
 export default GoodCards;
