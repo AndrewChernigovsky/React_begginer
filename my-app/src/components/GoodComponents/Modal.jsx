@@ -1,13 +1,13 @@
-import styled from "styled-components/macro";
-import React from "react";
-import GoodCardOrder from "./GoodCardOrder"
-import { useState } from "react";
+import styled from 'styled-components/macro';
+import React from 'react';
+import GoodCardOrder from './GoodCardOrder';
+import { useState } from 'react';
 
 const StyledWrapperButtons = styled.div`
 	display: flex;
 	padding: 1rem;
 	justify-content: space-between;
-`
+`;
 const StyledButton = styled.button`
 	color: black;
 	border: 2px solid black;
@@ -26,54 +26,95 @@ const StyledButton = styled.button`
 		color: ;
 		transition-duration: 0.3s;
 	}
-`
+`;
 
 export default function Modal({ setModal, modal, setOrder, order }) {
-	
 	const arrOrders = [];
 
 	for (let i = 1; i <= arrOrders.length; i++) {
 		arrOrders.push(modal);
-		console.log(arrOrders)
-		
+		console.log(arrOrders);
 	}
 
-	const [count, setCount] = useState(1)
+	const [count, setCount] = useState(1);
 
 	const closeModal = (e) => {
-		if (e.target.id === "overlay") {
+		if (e.target.id === 'overlay') {
 			setModal(null);
 		}
-	}
+	};
 
 	const pushOrder = () => {
-		setOrder([...order, { ...modal, count }])
+		setOrder([...order, { ...modal, count }]);
 		setModal(null);
-	}
-	
-	return <>
-		<div className="overlay" id='overlay' onClick={(e) => {closeModal(e)}}>
-			<div className="modal">
-				<GoodCardOrder name={modal.name} price={modal.price} img={modal.img} count={count} />
-				<StyledWrapperButtons>
-					<div className="buttonCountersWrap">
-						<button className="buttonAddtoCart" disabled={count === 1} onClick={() => { setCount(count - 1) }} > - </button>
-						<button className="buttonAddtoCart" onClick={() => { setCount(count + 1) }} > + </button>
-					</div>
-					<button className="buttonAddtoCart pushButton" onClick={(e) => { pushOrder(e) }} > готово </button>
-				</StyledWrapperButtons>
-					<form>
-					{modal.fillings && modal.fillings.map((item) => {
-						return <div key={item}>
-							<label>
-								{item}
-								<input type="checkbox" name={item} />
-							</label>
+	};
+
+	return (
+		<>
+			<div
+				className="overlay"
+				id="overlay"
+				onClick={(e) => {
+					closeModal(e);
+				}}
+			>
+				<div className="modal">
+					<GoodCardOrder
+						name={modal.name}
+						price={modal.price}
+						img={modal.img}
+						count={count}
+					/>
+					<StyledWrapperButtons>
+						<div className="buttonCountersWrap">
+							<button
+								className="buttonAddtoCart"
+								disabled={count === 1}
+								onClick={() => {
+									setCount(count - 1);
+								}}
+							>
+								{' '}
+								-{' '}
+							</button>
+							<button
+								className="buttonAddtoCart"
+								onClick={() => {
+									setCount(count + 1);
+								}}
+							>
+								{' '}
+								+{' '}
+							</button>
 						</div>
-					})
-					}
-				</form>
+						<button
+							className="buttonAddtoCart pushButton"
+							onClick={(e) => {
+								pushOrder(e);
+							}}
+						>
+							{' '}
+							готово{' '}
+						</button>
+					</StyledWrapperButtons>
+					<form>
+						{modal.fillings &&
+							modal.fillings.map((item) => {
+								return (
+									<div key={item}>
+										<label>
+											{item}
+											<input
+												type="checkbox"
+												name={item}
+											/>
+										</label>
+									</div>
+								);
+							})}
+					</form>
+				</div>
 			</div>
-		</div>
-	</>
+		</>
+	);
 }

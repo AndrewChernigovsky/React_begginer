@@ -94,6 +94,14 @@
 		background: linear-gradient(45deg, rgb(20, 200, 207) 0%, rgb(0, 119, 255) 100%);
 		transition-duration: 1s;
 	}
+	&:disabled {
+		opacity: 0.2;
+		&:hover {
+			color: white;
+			background: rgb(12,3,95);
+			background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
+		}
+	}
 }
 
 @keyframes animaBurger {
