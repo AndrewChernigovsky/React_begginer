@@ -12,6 +12,16 @@
 	border-radius: 15px;
 	background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
 
+	&__wrapper-title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		button.resetOrders {
+			min-width: 20px;
+		}
+	}
+
 	&__wrapper {
 		display: grid;
 	}

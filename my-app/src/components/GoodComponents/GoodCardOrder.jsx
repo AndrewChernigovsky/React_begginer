@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GoodCardOrder({ name, price, img, count}) {
+export default function GoodCardOrder({name, price, img, count}) {
 	return (
 		<div className="goods">
 			<div className="goods__text-wrapper">

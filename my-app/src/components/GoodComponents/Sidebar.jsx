@@ -1,28 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 import GoodCardOrder from "./GoodCardOrder"
 
 // В параметрах мы принимаем данные из родителя(<Header/>)
-function Sidebar({ order }) {
-	let disabled = false;
-
-	// let [isPrice, setPrice] = useState([]);
+export default function Sidebar({ order }) {
+	let [isPrice, setPrice] = useState(0);
 
 	const totalPrice = () => {
-		let x;
+		let totalCost = 0;
 		order.map((item) => {
-			x = item.price
-			console.log('1', x)
-			return console.log('1', x)
+			totalCost += item.price * item.count;
+		})
+		return totalCost;
+	}
+
+	useEffect(() => {
+		setPrice(totalPrice());
+	}, [order]);
+
+	const [isOrders, setOrders] = useState(true);
+
+	const resetOrders = () => {
+		order.map((index) => {
+			
 		})
 	}
 
-	// if (isPrice >= 100) {
-	// 	disabled = false
-	// }
+	// useEffect(() => {
+	// 	setOrders(resetOrders());
+	// }, [order]);
 
+	
 	return (
 		<aside className="sidebar">
-			<h2 className="sidebar__title">Список заказов</h2>
+			<div className="sidebar__wrapper-title">
+				<h2 className="sidebar__title">Список заказов</h2>
+				<button className="resetOrders buttonAddtoCart" type="button"  onClick={()=> {resetOrders()}}>
+					DEL
+				</button>
+			</div>
 
 			<div className="sidebar__wrapper">
 				{order.map((item, index) => {
@@ -37,10 +52,13 @@ function Sidebar({ order }) {
 					);
 				})}
 
-				<button className="buttonAddtoCart"  onClick={(() => {totalPrice()})}>Оформить заказ</button>
+				<button
+					className="buttonAddtoCart"
+					disabled={!(isPrice > 1000)}
+				>
+					Оформить заказ
+				</button>
 			</div>
 		</aside>
 	);
 }
-
-export default Sidebar;
