@@ -21,6 +21,7 @@ function Header() {
 				{/* передаем доступ до функций и переменной стейта в компоненты дальше */}
 				<Sidebar
 					order={order}
+					setOrder={setOrder}
 				/>
 				<div className="goodsWrapper">
 					<GoodCards

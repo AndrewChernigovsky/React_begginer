@@ -13,17 +13,14 @@ export default function GoodCard({
 }) {
 	return (
 		<div className="goods">
-			<div className="goods__text-wrapper">
-				<p className="goods__text">
-					<span className="base-text cost">Название:</span> {name}
-				</p>
-				<p className="goods__text">
-					<span className="base-text cost">Стоимость: </span>
-					{price} <span className="base-text">P</span>
-				</p>
-			</div>
 			<div className="goods-image">
 				<img src={img}></img>
+			</div>
+			<div className="goods__text-wrapper">
+				<p className="goods__text"> {name}</p>
+				<p className="goods__text">
+					{price} <span className="base-text">P</span>
+				</p>
 			</div>
 			{/* передаем в кнопку эти параметры */}
 			<ButtonAddtoCart

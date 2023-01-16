@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
-import React from 'react';
 import GoodCardOrder from './GoodCardOrder';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const StyledWrapperButtons = styled.div`
 	display: flex;
@@ -28,15 +27,15 @@ const StyledButton = styled.button`
 	}
 `;
 
-export default function Modal({ setModal, modal, setOrder, order }) {
+export default function Modal({ setModal, modal, setOrder, order}) {
 	const arrOrders = [];
 
 	for (let i = 1; i <= arrOrders.length; i++) {
 		arrOrders.push(modal);
-		console.log(arrOrders);
 	}
 
 	const [count, setCount] = useState(1);
+	const [checked, setChecked] = useState(false);
 
 	const closeModal = (e) => {
 		if (e.target.id === 'overlay') {
@@ -45,9 +44,32 @@ export default function Modal({ setModal, modal, setOrder, order }) {
 	};
 
 	const pushOrder = () => {
-		setOrder([...order, { ...modal, count }]);
+		setOrder([...order, { ...modal, count}]);
 		setModal(null);
 	};
+
+	const arrCheck = [];
+
+	const handleChange = (e) => {
+		var value = e.target.value;
+		if (e.target.checked) {
+			console.log('✅ Checkbox is checked');
+			for (let i = 1; i <= arrCheck.length; i++) {
+				arrCheck.push(value);
+			}
+	
+		
+		} else {
+			console.log('⛔️ Checkbox is NOT checked');
+		}
+		setChecked(!checked);
+
+
+
+		console.log('You selected ' + value);
+		console.log('You selected arr' + arrCheck);
+	}; 
+
 
 	return (
 		<>
@@ -64,6 +86,7 @@ export default function Modal({ setModal, modal, setOrder, order }) {
 						price={modal.price}
 						img={modal.img}
 						count={count}
+						choise={modal.fillings}
 					/>
 					<StyledWrapperButtons>
 						<div className="buttonCountersWrap">
@@ -96,17 +119,20 @@ export default function Modal({ setModal, modal, setOrder, order }) {
 							{' '}
 							готово{' '}
 						</button>
+
 					</StyledWrapperButtons>
 					<form>
 						{modal.fillings &&
 							modal.fillings.map((item) => {
 								return (
-									<div key={item}>
+									<div className="checkbox" key={item}>
 										<label>
 											{item}
 											<input
 												type="checkbox"
 												name={item}
+												value={item}
+												onChange={handleChange}
 											/>
 										</label>
 									</div>

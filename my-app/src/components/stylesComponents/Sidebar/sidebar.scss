@@ -1,5 +1,8 @@
 .sidebar {
 	min-height: 100%;
+	max-height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	max-width: 350px;
 	min-width: 350px;
 	border: 1px solid black;
@@ -11,6 +14,7 @@
 	transition: 1s ease-in-out;
 	border-radius: 15px;
 	background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 	&__wrapper-title {
 		display: flex;
@@ -19,6 +23,12 @@
 
 		button.resetOrders {
 			min-width: 20px;
+			background: transparent;
+			border: none;
+
+			&:disabled {
+				background: none;
+			}
 		}
 	}
 
@@ -33,5 +43,23 @@
 	p {
 		font-size: 25px;
 		color:  white;
+	}
+}
+
+.totalPrice {
+	color: white;
+	font-size: 24px;
+	font-weight: 600;
+	display: flex;
+    order: -1;
+	margin-bottom: 20px;
+
+	&__text {
+		color: white;
+		font-size: 24px;
+	}
+
+	span:not(span.totalPrice__text) {
+		margin-left: 10px;
 	}
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import ButtonAddtoCart from '../ButtonAddtoCart'
-
+import totalPrice from './../../../functions/pricecircle';
 const StyledDescription = styled.div`
   color: black;
   border: 2px solid black;
@@ -36,29 +36,34 @@ export default function GoodCardOther({
   setModal,
   fillings,
 }) {
-  return (
-    <StyledDescription>
-      <StyledText>
-        <strong>Название:</strong> {name}
-      </StyledText>
-      <StyledText>
-        <strong>Стоимость: </strong>
-        {price} <strong>P</strong>
-      </StyledText>
-      <StyledImageWrapper>
-        <StyledImage src={img}></StyledImage>
-      </StyledImageWrapper>
-      {/* передаем в кнопку эти параметры */}
-      <ButtonAddtoCart
-        name={name}
-        price={price}
-        img={img}
-        setOrder={setOrder}
-        order={order}
-        setModal={setModal}
-        fillings={fillings}
-        text="Add"
-      />
-    </StyledDescription>
-  )
+
+	let prices = totalPrice(price);
+	
+	return (
+		<div className="goods">
+			<div className="goods-image-icon tea">
+				<img src="/images/icons/tea.png" alt="" />
+			</div>
+			<div className="goods-image">
+				<img src={img}></img>
+			</div>
+			<div className="goods__text-wrapper">
+				<p className="goods__text"> {name}</p>
+				<p className="goods__text">
+					{prices} <span className="base-text">P</span>
+				</p>
+			</div>
+			{/* передаем в кнопку эти параметры */}
+			<ButtonAddtoCart
+				name={name}
+				price={price}
+				img={img}
+				setOrder={setOrder}
+				order={order}
+				fillings={fillings}
+				setModal={setModal}
+				text="Добавить в заказ"
+			/>
+		</div>
+	);
 }

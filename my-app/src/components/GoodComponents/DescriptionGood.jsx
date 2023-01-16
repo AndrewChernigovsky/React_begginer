@@ -61,7 +61,7 @@ const DescriptionGood = {
 			name: "Чайкофф",
 			img: "/images/menu/tea.png",
 			id: 2,
-			price: 70,
+			price: 73.333,
 			choices: ["Черный", "Зеленый"],
 		},
 		{
