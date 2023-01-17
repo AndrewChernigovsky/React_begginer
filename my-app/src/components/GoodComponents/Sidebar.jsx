@@ -10,14 +10,23 @@ export default function Sidebar({ order, setOrder }) {
 	
 	const totalPrice = () => {
 		let totalCost = 0;
-		order.map((item) => {
+		order.forEach((item) => {
 			totalCost += item.price * item.count;
 		})
 		return totalCost;
 	}
+	
+	const totalCounts = () => {
+		let startCount = 0;
+		order.forEach((item) => {
+			startCount += item.count;
+		})
+		return startCount;
+	}
 
 	useEffect(() => {
 		setPrice(totalPrice());
+		setTotalCount(totalCounts());
 	}, [order]);
 
 	return (
@@ -32,7 +41,7 @@ export default function Sidebar({ order, setOrder }) {
 						setOrder([]);
 					}}
 				>
-					<Trash/>
+					<Trash />
 				</button>
 			</div>
 
@@ -45,31 +54,21 @@ export default function Sidebar({ order, setOrder }) {
 							price={item.price}
 							img={item.img}
 							count={item.count}
-							choise={item.fillings}
+							choise={item.choises}
 						/>
 					);
 				})}
 
-				<button
-					className="buttonAddtoCart"
-					disabled={!(isPrice > 1000)}
-				>
-					Оформить заказ
-				</button>
-				<div className='totalPrice'>
-					<span className='totalPrice__text'>Итог: </span>
-					<span>{totalPrice()}</span>
+				<div className="totalPrice">
+					<span className="totalPrice__text">Итог: </span>
+					<span>{totalPrice().toFixed(2)}</span>
 					<span> Руб.</span>
-					<span>{
-						order.map((item) => {
-						
-							totalCount += item.count;
-							
-							return Number(totalCount);
-						})}
-					</span>
+					<span>{totalCount}</span>
 				</div>
 			</div>
+			<button className="buttonAddtoCart" disabled={!(isPrice > 1000)}>
+				Оформить заказ
+			</button>
 		</aside>
 	);
 }

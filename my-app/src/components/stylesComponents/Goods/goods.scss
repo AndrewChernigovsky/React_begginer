@@ -87,7 +87,9 @@
 	transition-duration: 1s;
 	text-shadow: 1px 1px 2px black;
 
+
 	&:hover {
+
 		opacity: 0.8;
 		cursor: pointer;
 		color: blue;
@@ -189,4 +191,20 @@
 
 .goods-image-icon.tea{
 	display: none;
+}
+
+.sidebar {
+	.goods__text.modal-count {
+		display: none;
+	}
+
+	.buttonAddtoCart {
+		align-self: flex-end;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.resetOrders.buttonAddtoCart {
+		position: relative;
+	}
 }

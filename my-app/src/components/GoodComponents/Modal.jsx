@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 import GoodCardOrder from './GoodCardOrder';
 import { useState, useEffect } from 'react';
+import Checkboxs from './Checkboxs';
 
 const StyledWrapperButtons = styled.div`
 	display: flex;
@@ -35,7 +36,6 @@ export default function Modal({ setModal, modal, setOrder, order}) {
 	}
 
 	const [count, setCount] = useState(1);
-	const [checked, setChecked] = useState(false);
 
 	const closeModal = (e) => {
 		if (e.target.id === 'overlay') {
@@ -43,33 +43,22 @@ export default function Modal({ setModal, modal, setOrder, order}) {
 		}
 	};
 
-	const pushOrder = () => {
-		setOrder([...order, { ...modal, count}]);
+	const pushOrder = (choises) => {
+		setOrder([...order, { ...modal, count, choises}]);
 		setModal(null);
 	};
 
-	const arrCheck = [];
 
-	const handleChange = (e) => {
-		var value = e.target.value;
-		if (e.target.checked) {
-			console.log('✅ Checkbox is checked');
-			for (let i = 1; i <= arrCheck.length; i++) {
-				arrCheck.push(value);
+	const getCheckedCheckBoxes = () => {
+		let checkboxes = document.getElementsByClassName('checkbox');
+		let checkboxesChecked = []; // можно в массиве их хранить, если нужно использовать
+		for (let index = 0; index < checkboxes.length; index++) {
+			if (checkboxes[index].checked) {
+				checkboxesChecked.push(checkboxes[index].value); // положим в массив выбранный
 			}
-	
-		
-		} else {
-			console.log('⛔️ Checkbox is NOT checked');
 		}
-		setChecked(!checked);
-
-
-
-		console.log('You selected ' + value);
-		console.log('You selected arr' + arrCheck);
-	}; 
-
+		return checkboxesChecked; // для использования в нужном месте
+	}
 
 	return (
 		<>
@@ -110,34 +99,23 @@ export default function Modal({ setModal, modal, setOrder, order}) {
 								+{' '}
 							</button>
 						</div>
+					</StyledWrapperButtons>
+
+					<form onSubmit={(e) => {
+						console.log(e);
+						pushOrder(getCheckedCheckBoxes());
+					}}>
+						{modal.fillings &&
+							modal.fillings.map((item) => {
+								return <Checkboxs key={item} item={item} />;
+							})}
 						<button
 							className="buttonAddtoCart pushButton"
-							onClick={(e) => {
-								pushOrder(e);
-							}}
+							type='submit'
 						>
 							{' '}
 							готово{' '}
 						</button>
-
-					</StyledWrapperButtons>
-					<form>
-						{modal.fillings &&
-							modal.fillings.map((item) => {
-								return (
-									<div className="checkbox" key={item}>
-										<label>
-											{item}
-											<input
-												type="checkbox"
-												name={item}
-												value={item}
-												onChange={handleChange}
-											/>
-										</label>
-									</div>
-								);
-							})}
 					</form>
 				</div>
 			</div>

@@ -21,8 +21,20 @@ export default function GoodCardOrder({ name, price, img, count, choise }) {
 					{prices}
 					<span className="subtitle base-text">P</span>
 				</p>
+				<span className="goods__text modal-count">{count}x</span>
 			</div>
-			<p className="goods__text choise">Начинка: {choise}</p>
+
+			<p className="goods__text choise order-choise">
+				{
+					choise && choise.map((item) => {
+						return (
+							<span key={item} style={{ padding: '5px' }}>{item}</span>
+						)
+					})
+				
+				}
+			
+			</p>
 		</div>
 	);
 }

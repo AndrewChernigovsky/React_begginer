@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import ButtonAddtoCart from '../ButtonAddtoCart'
 import totalPrice from './../../../functions/pricecircle';
+
 const StyledDescription = styled.div`
   color: black;
   border: 2px solid black;

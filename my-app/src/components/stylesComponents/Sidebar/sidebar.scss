@@ -1,7 +1,7 @@
 .sidebar {
 	min-height: 100%;
-	max-height: 100vh;
-	overflow-y: scroll;
+	max-height: 100%;
+	position: relative;
 	overflow-x: hidden;
 	max-width: 350px;
 	min-width: 350px;
@@ -15,6 +15,7 @@
 	border-radius: 15px;
 	background: linear-gradient(45deg, rgba(12,3,95,1) 0%, rgba(4,54,175,1) 100%);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	
 
 	&__wrapper-title {
 		display: flex;
@@ -34,6 +35,10 @@
 
 	&__wrapper {
 		display: grid;
+		overflow-y: scroll;
+		max-height: 700px;
+		position: relative;
+		grid-template-rows: 1fr;
 	}
 
 	&__title {
@@ -63,3 +68,4 @@
 		margin-left: 10px;
 	}
 }
+
